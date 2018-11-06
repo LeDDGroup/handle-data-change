@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - stable
+deploy:
+  provider: npm
+  email: danielpza@protonmail.com
+  api_key:
+    secure: CVwGXvvv+1g/e8pbYrYP2GqeEbxa5SuDww3EI2qxTrD2H2S30lnmfOi4PqCEcN7ghLXlYtgwUw3VBQTj26XVNMhyPMQ2V/AxaI5+ktrR4uToNTNH76oIpW3T8cT63s60VF6wWU1xkQPQsUUtYv9nSSy/6/XRLzHlrMELZhpnGwm5nFMTMOw3wIIjpyefbkwn9k/iWhm+Fh910IXoLs8TkPx/Rps81tPUKxWsBuJ106P+ypbCKk5hH82eEojbS3dlnovHQJMdOQwklF8flyJ4L5KtnBGii1jW/AclR2hJenaJuoBFUO/0CpsGcSQVPUoTU47WxrYzrL2IP4DNQW1a91byMRbgdjH+9DtTX/uksm1VyutQqU7zuaoiwJIlVuhn2Khh1GyFuW6T7lltDOc/lIh2JAnF38YdFqgeBzh9397Kabgwhb4lkLNTQ4+8zX9G2bD/VaZ21K5/5xKSJjDXPyjBCFL7oXPdfbq0OQ5U9ZS48T0ZTJnFImOzumwzauj/M1CvYexP68aR1xb61jk9EYKpeCXmiaPUZDXo5Kab+NDqxFCw4aIPJilPflKDb6xRFMGASMN1A2jK2dBDvTqmw1mYPFo3rr66lFcS3pqy3ha17Vcsle6Y/wKYoKSOqq4ktPQcOuccrAr5jVexwlHfCoXSojfkd1oNftmfbHxts6Q=
+  on:
+    tags: true
+    repo: LeDDGroup/handle-data-change
