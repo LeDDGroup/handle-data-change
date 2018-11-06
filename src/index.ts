@@ -1,10 +1,8 @@
 import dynamicOnChange from "dynamic-on-change";
-import getNames from "./getNames";
+import getNames, { names } from "./getNames";
 
 export class HandleDataChange<D> {
   private _Data: D;
-  private _name: string;
-  private _prefix: string;
   constructor(
     data: D,
     private _onChange: (newData: D) => void,
@@ -12,14 +10,13 @@ export class HandleDataChange<D> {
     prefix?: string
   ) {
     this._Data = Object.assign({}, data);
-    this._name = name || "data";
-    this._prefix = prefix || ".";
+    this.name = getNames<D>(name || "data", prefix || ".");
   }
   public change = dynamicOnChange<Required<D>>((key, value) => {
     this._Data[key] = value;
     this._onChange(this._Data);
   });
-  public name = getNames<D>(this._name, this._prefix);
+  public name: names<D>;
 }
 
 export default HandleDataChange;
