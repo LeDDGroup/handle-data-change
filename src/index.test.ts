@@ -29,3 +29,17 @@ it("should work", () => {
   handleChange.change.foo("hello world");
   checkCalls.check({ foo: "hello world", bar: 6 });
 });
+
+it("should work with partial types", () => {
+  type Data = { foo?: string; bar: number };
+  const checkCalls = new CheckCalls<Data>();
+  const handleChange = new HandleDataChange<Data>(
+    { bar: 0 },
+    checkCalls.change
+  );
+  checkCalls.checkNotCalled();
+  handleChange.change.bar(6);
+  checkCalls.check({ bar: 6 });
+  handleChange.change.foo("hello world");
+  checkCalls.check({ foo: "hello world", bar: 6 });
+});
