@@ -5,8 +5,16 @@
   "keywords": [
     "typescript"
   ],
+  "homepage": "https://github.com/LeDDGroup/handle-data-change#readme",
+  "bugs": {
+    "url": "https://github.com/LeDDGroup/handle-data-change/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeDDGroup/handle-data-change.git"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "Daniel Perez Alvarez <danielpza@protonmail.com>",
   "files": [
     "dist"
   ],
