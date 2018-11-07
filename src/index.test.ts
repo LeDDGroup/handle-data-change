@@ -43,3 +43,11 @@ it("should work with partial types", () => {
   handleChange.change.foo("hello world");
   checkCalls.check({ foo: "hello world", bar: 6 });
 });
+
+it("should have correct value", () => {
+  type Data = { foo?: string; bar: number };
+  const handleChange = new HandleDataChange<Data>({ bar: 0 }, console.log);
+  handleChange.change.bar(6);
+  handleChange.change.foo("hello world");
+  expect(handleChange.value).toEqual({ bar: 6, foo: "hello world" });
+});
