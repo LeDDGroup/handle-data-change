@@ -1,21 +1,26 @@
-import dynamicOnChange from "dynamic-on-change";
+import dynamicOnChange, { dynamicOnChanges } from "dynamic-on-change";
 import getNames, { names } from "./getNames";
 
-export class HandleDataChange<D> {
+export interface IData<D> {
+  change: dynamicOnChanges<Required<D>>;
+  path: names<D>;
+  value: D;
+}
+
+export class HandleDataChange<D> implements IData<D> {
   constructor(
     data: D,
-    private _onChange: (newData: D) => void,
-    name?: string,
-    prefix?: string
+    private onChange: (newData: D) => void = () => null,
+    path: string | string[] = []
   ) {
     this.value = Object.assign({}, data);
-    this.name = getNames<D>(name || "data", prefix || ".");
+    this.path = getNames<Required<D>>(typeof path === "string" ? [path] : path);
   }
   public change = dynamicOnChange<Required<D>>((key, value) => {
     this.value[key] = value;
-    this._onChange(this.value);
+    this.onChange(this.value);
   });
-  public name: names<D>;
+  public path: names<Required<D>>;
   public value: D;
 }
 

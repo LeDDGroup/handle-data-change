@@ -6,11 +6,11 @@ it("should create names", () => {
   const data = new HandleDataChange<Data>(
     { bar: 0 },
     (value: Data) => console.log(value),
-    name
+    [name]
   );
 
-  expect(data.name.bar).toBe(name + "." + "bar");
-  expect(data.name.foo).toBe(name + "." + "foo");
+  expect(data.path.bar.join(".")).toBe(name + "." + "bar");
+  expect(data.path.foo.join(".")).toBe(name + "." + "foo");
 });
 
 it("should create names in nested structures", () => {
@@ -30,11 +30,11 @@ it("should create names in nested structures", () => {
   const nested = new HandleDataChange<Nested>(
     { someNumber: 3, someOther: "a", complex: { a: "a", b: "b" } },
     (value: Nested) => console.log(value),
-    data.name.foo
+    data.path.foo
   );
 
-  const pre = name + "." + "foo";
-  expect(nested.name.complex).toBe(pre + "." + "complex");
-  expect(nested.name.someOther).toBe(pre + "." + "someOther");
-  expect(nested.name.someNumber).toBe(pre + "." + "someNumber");
+  const pre = name + "/" + "foo" + "/";
+  expect(nested.path.complex.join("/")).toBe(pre + "complex");
+  expect(nested.path.someOther.join("/")).toBe(pre + "someOther");
+  expect(nested.path.someNumber.join("/")).toBe(pre + "someNumber");
 });
