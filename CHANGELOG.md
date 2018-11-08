@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.1"></a>
+
+## [1.3.1](https://github.com/LeDDGroup/handle-data-change/compare/v1.3.0...v1.3.1) (2018-11-08)
+
+### Bug Fixes
+
+- fix missing fields in 'path' ([25de2fd](https://github.com/LeDDGroup/handle-data-change/commit/25de2fd))
+
 <a name="1.3.0"></a>
 
 # [1.3.0](https://github.com/LeDDGroup/handle-data-change/compare/v1.2.0...v1.3.0) (2018-11-08)
