@@ -3,7 +3,7 @@ import getNames, { names } from "./getNames";
 
 export interface IData<D> {
   change: dynamicOnChanges<Required<D>>;
-  path: names<D>;
+  path: names<Required<D>>;
   value: D;
 }
 
