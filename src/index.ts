@@ -7,13 +7,13 @@ export interface IData<D> {
   value: D;
 }
 
-export class HandleDataChange<D> implements IData<D> {
+export class HandleDataChange<D extends object | any[]> implements IData<D> {
   constructor(
     data: D,
     private onChange: (newData: D) => void = () => null,
     path: string | string[] = []
   ) {
-    this.value = Object.assign({}, data);
+    this.value = Object.assign(Array.isArray(data) ? [] : {}, data);
     this.path = getNames<Required<D>>(typeof path === "string" ? [path] : path);
   }
   public change = dynamicOnChange<Required<D>>((key, value) => {
